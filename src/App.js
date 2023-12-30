@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import NewsDetailCard from "./components/card";
+import NewsDetailCard from "./components/NewsDetailCard";
+import Header from "./components/Header";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -18,11 +19,14 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {articles.map((article) => {
-        return <NewsDetailCard key={article.publishedAt} article={article} />;
-      })}
-    </div>
+    <>
+      <Header />
+      <div className="App">
+        {articles.map((article) => {
+          return <NewsDetailCard key={article.publishedAt} article={article} />;
+        })}
+      </div>
+    </>
   );
 }
 
